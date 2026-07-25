@@ -4,7 +4,7 @@ An enterprise 4-role Visitor Management & Gate Access Control System built speci
 
 ---
 
-## 🏛️ System Architecture & Workflow
+## System Architecture & Workflow
 
 The system enforces a strict 4-role sequential chain-of-approval:
 
@@ -23,9 +23,9 @@ The system enforces a strict 4-role sequential chain-of-approval:
 
 ---
 
-## 👥 4 Admin-Provisioned Roles
+##  4 Admin-Provisioned Roles
 
-> ⚠️ **No Public Self-Registration**: Only Admin can provision user accounts. Self-registration is disabled for enterprise security integrity.
+>  **No Public Self-Registration**: Only Admin can provision user accounts. Self-registration is disabled for enterprise security integrity.
 
 1. **Admin**
    - Provisions/deactivates Admin, HOD, Employee, and Security accounts.
@@ -49,7 +49,7 @@ The system enforces a strict 4-role sequential chain-of-approval:
 
 ---
 
-## 🚀 Tech Stack
+##  Tech Stack
 
 - **Frontend**: React.js, TailwindCSS, Lucide-React, Recharts, Socket.io-client, jsPDF, QRCode
 - **Backend**: Node.js, Express.js, MongoDB (Mongoose), Socket.io, Helmet, Rate-Limiter, Mongo-Sanitize, Morgan
@@ -57,7 +57,7 @@ The system enforces a strict 4-role sequential chain-of-approval:
 
 ---
 
-## 🏎️ Running Locally
+##  Running Locally
 
 ### Backend Setup
 ```bash
@@ -76,7 +76,7 @@ npm run dev
 
 ---
 
-## 🔑 Demo Credentials
+##  Demo Credentials
 
 | Role | Email | Password |
 |---|---|---|
