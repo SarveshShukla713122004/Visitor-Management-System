@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+/* ─── MECON Design System Tokens ─────────────────────────── */
+@theme {
+  --color-mecon-50:  #f0f4f8;
+  --color-mecon-100: #e2ecf5;
+  --color-mecon-200: #c5d9e8;
+  --color-mecon-300: #9bbed6;
+  --color-mecon-400: #689bc2;
+  --color-mecon-500: #447ba3;
+  --color-mecon-600: #336185;
+  --color-mecon-700: #284e6c;
+  --color-mecon-800: #1e3c54;
+  --color-mecon-900: #0b1b2b;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ─── Base ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ─── Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.575rem 1.1rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  outline: none;
+  text-decoration: none;
+}
+.btn:focus-visible { outline: 2px solid #447ba3; outline-offset: 2px; }
+.btn:active { transform: scale(0.975); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+/* Primary — MECON Navy */
+.btn-primary {
+  background: linear-gradient(135deg, #1a3a5f 0%, #284e6c 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(26,58,95,0.25);
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #15293c 0%, #1e3c54 100%);
+  box-shadow: 0 4px 16px rgba(26,58,95,0.35);
+  transform: translateY(-1px);
+}
+
+/* Secondary — outline */
+.btn-secondary {
+  background: #fff;
+  color: #1a3a5f;
+  border-color: #c5d9e8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: #f0f4f8;
+  border-color: #9bbed6;
+  box-shadow: 0 3px 10px rgba(68,123,163,0.15);
+  transform: translateY(-1px);
+}
+
+/* Danger — Red */
+.btn-danger {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(185,28,28,0.25);
+}
+.btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+  box-shadow: 0 4px 16px rgba(185,28,28,0.35);
+  transform: translateY(-1px);
+}
+
+/* Ghost — subtle */
+.btn-ghost {
+  background: transparent;
+  color: #64748b;
+  border-color: #e2e8f0;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: #f8fafc;
+  color: #1a3a5f;
+  border-color: #c5d9e8;
+}
+
+/* Size modifiers */
+.btn-sm {
+  font-size: 0.7rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.4rem;
+}
+.btn-lg {
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.6rem;
+}
+.btn-icon {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* ─── Cards ───────────────────────────────────────────────── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.875rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 0 0 0 rgba(68,123,163,0);
+  transition: box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.22s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 8px 24px rgba(26,58,95,0.1), 0 2px 6px rgba(0,0,0,0.06);
+  border-color: #c5d9e8;
+  transform: translateY(-2px);
+}
+.card-active { border-color: #447ba3; box-shadow: 0 0 0 3px rgba(68,123,163,0.12); }
+
+/* ─── Stat Card ───────────────────────────────────────────── */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25rem 1.5rem;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  background: radial-gradient(circle at top right, rgba(68,123,163,0.04), transparent 70%);
+}
+.stat-card:hover::before { opacity: 1; }
+
+/* ─── Input Fields ────────────────────────────────────────── */
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: #1e293b;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  outline: none;
+  font-family: inherit;
+}
+.input::placeholder { color: #94a3b8; }
+.input:hover { border-color: #c5d9e8; background: #fff; }
+.input:focus {
+  border-color: #447ba3;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(68,123,163,0.15);
+}
+.input-error { border-color: #ef4444; }
+.input-error:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.12); }
+
+/* ─── Badges ──────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.badge-blue   { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+.badge-green  { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+.badge-amber  { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+.badge-red    { background: #fee2e2; color: #b91c1c; border-color: #fecaca; }
+.badge-slate  { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+.badge-navy   { background: #e2ecf5; color: #1a3a5f; border-color: #c5d9e8; }
+
+.badge-purple { background: #f3e8ff; color: #7e22ce; border-color: #e9d5ff; }
+.badge-teal   { background: #ccfbf1; color: #0f766e; border-color: #99f6e4; }
+
+/* ─── Table ───────────────────────────────────────────────── */
+.table-row-hover { transition: background 0.12s ease; }
+.table-row-hover:hover { background-color: #f8fafc; }
+
+/* ─── Sidebar Nav Items ───────────────────────────────────── */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: left;
+}
+.nav-item:hover {
+  color: #e2ecf5;
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.06);
+}
+.nav-item.active {
+  background: linear-gradient(135deg, #1a3a5f 0%, #284e6c 100%);
+  color: #fff;
+  border-color: rgba(155,190,214,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* ─── Misc Utilities ──────────────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(11, 27, 43, 0.05);
+}
+.ring-mecon { box-shadow: 0 0 0 3px rgba(68,123,163,0.2); }
+.divider { border: none; border-top: 1px solid #e2e8f0; margin: 1rem 0; }
+
+/* ─── Fade-in animation ───────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeInUp 0.3s ease forwards; }
+
